@@ -87,7 +87,33 @@ function reverseInt(int) {
   return parseInt(revStr) * Math.sign(int);
 }
 
+function capitalizeLetters(str) {
+  // const strArr = str.toLowerCase().split(" ");
+
+  // for (let i = 0; i < strArr.length; i++) {
+  //   strArr[i] =
+  //     strArr[i].substring(0, 1).toUpperCase() + strArr[i].substring(1);
+  // }
+
+  // return strArr.join(" ");
+
+  ///////////////////////
+
+  // return str
+  //   .toLowerCase()
+  //   .split(" ")
+  //   .map((word) => word[0].toUpperCase() + word.substr(1))
+  //   .join(" ");
+
+  ///////////////////////
+
+  return str.replace(/\b[a-z]/gi, function (char) {
+    return char.toUpperCase();
+  });
+}
+
 // reverseString("hello");
 // console.log(reverseString("racecar"));
 // console.log(isPalindrome("madam"));
-console.log(reverseInt(-123456));
+// console.log(reverseInt(-123456));
+console.log(capitalizeLetters("brad is cool"));
