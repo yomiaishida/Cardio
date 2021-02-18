@@ -50,8 +50,37 @@ function reverseString(str) {
 
   return str.split("").reduce((revStr, char) => {
     return char + revStr;
-  }, "how ");
+  }, "");
+}
+
+function isPalindrome(str) {
+  // let reversed = str.split("").reduce((revStr, char) => {
+  //   return char + revStr;
+  // }, "");
+
+  // if (reversed == str) {
+  //   console.log("That's a palindrome");
+  // } else {
+  //   console.log("That's no palindrome");
+  // }
+
+  ///////////////////////
+
+  // const revStr = str.split("").reverse().join("");
+
+  // if (revStr == str) {
+  //   return console.log("That's a palindrome");
+  // } else {
+  //   return console.log("That's no palindrome");
+  // }
+
+  ///////////////////////////
+
+  const revStr = str.split("").reverse().join("");
+
+  return revStr === str;
 }
 
 // reverseString("hello");
-console.log(reverseString("hello"));
+// console.log(reverseString("racecar"));
+console.log(isPalindrome("madam"));
