@@ -81,6 +81,13 @@ function isPalindrome(str) {
   return revStr === str;
 }
 
+function reverseInt(int) {
+  const revStr = int.toString().split("").reverse().join("");
+
+  return parseInt(revStr) * Math.sign(int);
+}
+
 // reverseString("hello");
 // console.log(reverseString("racecar"));
-console.log(isPalindrome("madam"));
+// console.log(isPalindrome("madam"));
+console.log(reverseInt(-123456));
