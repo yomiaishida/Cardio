@@ -219,5 +219,27 @@ function chunkArray(arr, len) {
   return chunkedArr;
 }
 
-const output = chunkArray([5, 2, 3, 4, 5, 6, 7], 2);
+function flattenArray(arrays) {
+  // SOLUTION 1
+  // return arrays.reduce((a, b) => {
+  //   return a.concat(b);
+  // });
+
+  // SOLUTION 2
+  // return [].concat.apply([], arrays);
+
+  // SOLUTION 3
+  return [].concat(...arrays);
+}
+
+function isAnagram(str1, str2) {
+  return formatStr(str1) === formatStr(str2);
+}
+
+// Helper function
+function formatStr(str) {
+  return str.replace(/[^\w]/g, "").toLowerCase().split("").sort().join("");
+}
+
+const output = isAnagram("dormitory", "dirty room");
 console.log(output);
