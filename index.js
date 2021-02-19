@@ -112,8 +112,29 @@ function capitalizeLetters(str) {
   });
 }
 
-// reverseString("hello");
-// console.log(reverseString("racecar"));
-// console.log(isPalindrome("madam"));
-// console.log(reverseInt(-123456));
-console.log(capitalizeLetters("brad is cool"));
+function maxCharacter(str) {
+  const charMap = {};
+  let maxNum = 0;
+  let maxChar = "";
+
+  str.split("").forEach((char) => {
+    if (charMap[char]) {
+      charMap[char]++;
+    } else {
+      charMap[char] = 1;
+    }
+  });
+
+  for (let char in charMap) {
+    // debugger;
+    if (charMap[char] > maxNum) {
+      maxNum = charMap[char];
+      maxChar = char;
+    }
+  }
+
+  return maxChar;
+}
+
+const output = maxCharacter("javascript");
+console.log(output);
