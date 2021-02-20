@@ -255,5 +255,40 @@ function letterChanges(str) {
   return newStr;
 }
 
-const output = letterChanges("Hello there");
-console.log(output);
+// Solution - ES5 arguments & for loop
+// function addAll() {
+//   var args = Array.prototype.slice.call(arguments);
+//   var total = 0;
+
+//   for (let i = 0; i < args.length; i++) {
+//     total += args[i];
+//   }
+//   return total;
+// }
+
+// // Solution 2 - ...rest & reduce/forEach
+// function addAll(...numbers) {
+//   return numbers.reduce((acc, cur) => acc + cur);
+// }
+
+function summAllPrimes(num) {
+  let total = 0;
+
+  function checkForPrime(i) {
+    for (let j = 2; j < i; j++) {
+      if (i % j === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  for (let i = 2; i <= num; i++) {
+    if (checkForPrime(i)) {
+      total += i;
+    }
+  }
+  return total;
+}
+// const output = letterChanges("Hello there");
+console.log(summAllPrimes(100));
