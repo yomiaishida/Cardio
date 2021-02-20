@@ -271,24 +271,42 @@ function letterChanges(str) {
 //   return numbers.reduce((acc, cur) => acc + cur);
 // }
 
-function summAllPrimes(num) {
-  let total = 0;
+// function summAllPrimes(num) {
+//   let total = 0;
 
-  function checkForPrime(i) {
-    for (let j = 2; j < i; j++) {
-      if (i % j === 0) {
-        return false;
-      }
-    }
-    return true;
-  }
+//   function checkForPrime(i) {
+//     for (let j = 2; j < i; j++) {
+//       if (i % j === 0) {
+//         return false;
+//       }
+//     }
+//     return true;
+//   }
 
-  for (let i = 2; i <= num; i++) {
-    if (checkForPrime(i)) {
-      total += i;
-    }
-  }
-  return total;
+//   for (let i = 2; i <= num; i++) {
+//     if (checkForPrime(i)) {
+//       total += i;
+//     }
+//   }
+//   return total;
+// }
+
+// // Solution 1: arguments, indexOf, filter
+// function seekAndDestroy(arr) {
+//   const args = Array.from(arguments);
+
+//   function filterArr(arr) {
+//     // Return true if NOT in array
+//     return args.indexOf(arr) === -1;
+//   }
+
+//   return arr.filter(filterArr);
+// }
+
+// Solution 2: ...rest, filter & includes
+function seekAndDestroy(arr, ...rest) {
+  return arr.filter((val) => !rest.includes(val));
 }
+
 // const output = letterChanges("Hello there");
-console.log(summAllPrimes(100));
+console.log(seekAndDestroy([2, 4, 5, 6, 7, "hi"], 2, 6));
