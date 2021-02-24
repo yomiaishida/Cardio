@@ -323,20 +323,31 @@ function seekAndDestroy(arr, ...rest) {
 
 // const a = [-1, 150, 190, 170, -1, 160, 180];
 
-function missingLetters(str) {
-  let compare = str.charCodeAt(0);
-  let missing;
+// function missingLetters(str) {
+//   let compare = str.charCodeAt(0);
+//   let missing;
 
-  str.split("").map((char, i) => {
-    if (str.charCodeAt(i) == compare) {
-      ++compare;
-    } else {
-      missing = String.fromCharCode(compare);
-    }
-  });
+//   str.split("").map((char, i) => {
+//     if (str.charCodeAt(i) == compare) {
+//       ++compare;
+//     } else {
+//       missing = String.fromCharCode(compare);
+//     }
+//   });
 
-  return missing;
+//   return missing;
+// }
+
+function evenOddSums(arr) {
+  let even = 0;
+  let odd = 0;
+
+  arr.forEach((num) => (num % 2 == 0 ? (even += num) : (odd += num)));
+
+  let total = [even, odd];
+
+  return total;
 }
 
 // const output = letterChanges("Hello there");
-console.log(missingLetters("abceghj"));
+console.log(evenOddSums([20, 20, 30, 15, 45]));
