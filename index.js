@@ -308,20 +308,35 @@ function seekAndDestroy(arr, ...rest) {
   return arr.filter((val) => !rest.includes(val));
 }
 
-function sortByHeight(a) {
-  const arr1 = [];
-  const arr2 = [];
+// function sortByHeight(a) {
+//   const arr1 = [];
+//   const arr2 = [];
 
-  a.forEach((val, i) => (val === -1 ? arr1.push(i) : arr2.push(val)));
+//   a.forEach((val, i) => (val === -1 ? arr1.push(i) : arr2.push(val)));
 
-  const sortArr = arr2.sort((a, b) => a - b);
+//   const sortArr = arr2.sort((a, b) => a - b);
 
-  arr1.forEach((val, i) => sortArr.splice(arr1[i], 0, -1));
+//   arr1.forEach((val, i) => sortArr.splice(arr1[i], 0, -1));
 
-  return sortArr;
+//   return sortArr;
+// }
+
+// const a = [-1, 150, 190, 170, -1, 160, 180];
+
+function missingLetters(str) {
+  let compare = str.charCodeAt(0);
+  let missing;
+
+  str.split("").map((char, i) => {
+    if (str.charCodeAt(i) == compare) {
+      ++compare;
+    } else {
+      missing = String.fromCharCode(compare);
+    }
+  });
+
+  return missing;
 }
 
-const a = [-1, 150, 190, 170, -1, 160, 180];
-
 // const output = letterChanges("Hello there");
-console.log(sortByHeight(a));
+console.log(missingLetters("abceghj"));
