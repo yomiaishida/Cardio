@@ -308,5 +308,20 @@ function seekAndDestroy(arr, ...rest) {
   return arr.filter((val) => !rest.includes(val));
 }
 
+function sortByHeight(a) {
+  const arr1 = [];
+  const arr2 = [];
+
+  a.forEach((val, i) => (val === -1 ? arr1.push(i) : arr2.push(val)));
+
+  const sortArr = arr2.sort((a, b) => a - b);
+
+  arr1.forEach((val, i) => sortArr.splice(arr1[i], 0, -1));
+
+  return sortArr;
+}
+
+const a = [-1, 150, 190, 170, -1, 160, 180];
+
 // const output = letterChanges("Hello there");
-console.log(seekAndDestroy([2, 4, 5, 6, 7, "hi"], 2, 6));
+console.log(sortByHeight(a));
