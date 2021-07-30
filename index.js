@@ -351,3 +351,20 @@ function evenOddSums(arr) {
 
 // const output = letterChanges("Hello there");
 console.log(evenOddSums([20, 20, 30, 15, 45]));
+
+// FCC Search and replace
+function searchNrep(str, before, after) {
+  let newStr;
+  let befIn = str.indexOf(before);
+  let aftIn = after[0];
+  if (str[befIn] == str[befIn].toUpperCase()) {
+    aftIn = aftIn.toUpperCase();
+    newStr = aftIn + after.slice(1);
+  } else {
+    aftIn = aftIn.toLowerCase();
+    newStr = aftIn + after.slice(1);
+  }
+  return str.replace(before, newStr);
+}
+
+console.log(searchNrep("hello World, how's it going", "World,", "people"));
