@@ -368,3 +368,29 @@ function searchNrep(str, before, after) {
 }
 
 console.log(searchNrep("hello World, how's it going", "World,", "people"));
+
+// FCC DNA PAIRING
+function pairElement(str) {
+  let splitted = str.split("");
+  const twoDArr = [];
+  splitted.map((char) => {
+    switch (char) {
+      case "G":
+        twoDArr.push(["G", "C"]);
+        break;
+      case "C":
+        twoDArr.push(["C", "G"]);
+        break;
+      case "A":
+        twoDArr.push(["A", "T"]);
+        break;
+      case "T":
+        twoDArr.push(["T", "A"]);
+        break;
+    }
+  });
+  console.log(twoDArr);
+  return twoDArr;
+}
+
+pairElement("GCGTA");
