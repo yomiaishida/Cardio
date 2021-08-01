@@ -327,7 +327,7 @@ function seekAndDestroy(arr, ...rest) {
 //   let compare = str.charCodeAt(0);
 //   let missing;
 
-//   str.split("").map((char, i) => {
+//   str.split("").map((_char, i) => {
 //     if (str.charCodeAt(i) == compare) {
 //       ++compare;
 //     } else {
@@ -337,6 +337,8 @@ function seekAndDestroy(arr, ...rest) {
 
 //   return missing;
 // }
+
+// console.log(missingLetters("cdefik"));
 
 function evenOddSums(arr) {
   let even = 0;
@@ -394,3 +396,21 @@ function pairElement(str) {
 }
 
 pairElement("GCGTA");
+
+// FCC Fear Not Letters
+function fearNotLetter(str) {
+  let firstInd = str.charCodeAt(0);
+  let missing;
+
+  str.split("").map((_char, i) => {
+    if (str.charCodeAt(i) == firstInd) {
+      firstInd++;
+    } else {
+      missing = String.fromCharCode(firstInd);
+    }
+  });
+
+  return missing;
+}
+
+fearNotLetter("fhij");
