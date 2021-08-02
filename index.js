@@ -414,3 +414,11 @@ function fearNotLetter(str) {
 }
 
 fearNotLetter("fhij");
+
+function uniteUnique(arr) {
+  let arg = Array.from(arguments);
+  let res = [].concat(...arg);
+  return [...new Set(res)];
+}
+
+console.log(uniteUnique([1, 3, 8], [5, 2, 1, 4], [2, 1]));
