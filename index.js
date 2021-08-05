@@ -397,7 +397,7 @@ function pairElement(str) {
 
 pairElement("GCGTA");
 
-// FCC Fear Not Letters
+// Missing Letters
 function fearNotLetter(str) {
   let firstInd = str.charCodeAt(0);
   let missing;
@@ -421,4 +421,35 @@ function uniteUnique(arr) {
   return [...new Set(res)];
 }
 
+// Convert HTML Entities
 console.log(uniteUnique([1, 3, 8], [5, 2, 1, 4], [2, 1]));
+function convertHTML(str) {
+  let nwstr = str;
+
+  for (let i = 0; i < str.length; i++) {
+    // console.log(str[i])
+    if (str[i] == "&") {
+      nwstr = nwstr.replace("&", "&amp;");
+      i++;
+    }
+    if (str[i] == "<") {
+      nwstr = nwstr.replace("<", "&lt;");
+      i++;
+    }
+    if (str[i] == ">") {
+      nwstr = nwstr.replace(">", "&gt;");
+      i++;
+    }
+    if (str[i] == '"') {
+      nwstr = nwstr.replace('"', "&quot;");
+      i++;
+    }
+    if (str[i] == "'") {
+      nwstr = nwstr.replace("'", "&apos;");
+      i++;
+    }
+  }
+
+  console.log(nwstr);
+  return nwstr;
+}
