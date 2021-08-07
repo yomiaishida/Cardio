@@ -453,3 +453,32 @@ function convertHTML(str) {
   console.log(nwstr);
   return nwstr;
 }
+
+// Sum All Odd Fibonacci Numbers
+function sumFibs(num) {
+  let fib
+  let oddArr= []
+  
+  if(num ==1) {
+    return 1 
+  } else (
+    fib = [0, 1]
+  )
+  
+  for(let i= fib.length; i < num+1; i++) {
+    console.log(i)
+  fib.push(fib[fib.length-1] + fib[fib.length-2])
+  }
+  fib.map((fi) => {
+    if(fi <= num && fi % 2 !==0) {
+      oddArr.push(fi)
+    }
+  })
+    console.log(fib)
+  const add = (a, b) => a+b
+  const sum = oddArr.reduce(add)
+  console.log(sum)
+  return sum;
+}
+
+sumFibs(4);
