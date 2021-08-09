@@ -501,3 +501,23 @@ function sumPrimes(num) {
 }
 
 sumPrimes(977);
+
+// FCC Drop it Algorithm
+function dropElements(arr, func) {
+  let nArr = [];
+  let another = [];
+  let res = arr.filter((num) => {
+    if (func(num) == !true && !nArr.includes(num)) {
+      nArr.push(num);
+    } else {
+      another.push(num);
+      console.log(another);
+    }
+  });
+  console.log(another);
+  return another;
+}
+
+dropElements([1, 2, 3, 4], function (n) {
+  return n >= 3;
+});
