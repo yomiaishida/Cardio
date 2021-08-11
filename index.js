@@ -231,6 +231,20 @@ function flattenArray(arrays) {
   // SOLUTION 3
   return [].concat(...arrays);
 }
+// FCC steamrollArray Solution
+function steamrollArray(arr) {
+  let flatten = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+      flatten.push(...steamrollArray(arr[i]));
+    } else {
+      flatten.push(arr[i]);
+    }
+  }
+  return flatten;
+}
+
+steamrollArray([1, [2], [3, [[4]]]]);
 
 function isAnagram(str1, str2) {
   return formatStr(str1) === formatStr(str2);
