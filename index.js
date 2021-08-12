@@ -549,3 +549,10 @@ function binaryAgent(str) {
 binaryAgent(
   "01001001 00100000 01101100 01101111 01110110 01100101 00100000 01000110 01110010 01100101 01100101 01000011 01101111 01100100 01100101 01000011 01100001 01101101 01110000 00100001"
 );
+
+// FCC Everything Be True
+function truthCheck(collection, pre) {
+  return collection.every((col) => col[pre] ? true : false)
+}
+
+truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex")
