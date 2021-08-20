@@ -601,3 +601,20 @@ bob.getFullName()
 bob.setFirstName('first')
 bob.setLastName('last')
 bob.setFullName('first Last')
+
+// FCC Project: Palindrome Checker
+function palindrome(str) {
+  let alphabetRegex = /[A-Za-z0-9]+/gi; // Change this line
+  let result = str.match(alphabetRegex);
+  let testAr = result.join('').split('').reverse().join('').toLowerCase()
+  let joinedRes = result.join('').toLowerCase()
+  console.log(testAr)
+   return joinedRes === testAr ? true : false
+  }
+  
+  
+  
+  palindrome("My age is 0, 0 si ega ym.");
+  palindrome("0_0 (: /-\ :) 0-0");
+  palindrome("1 eye for of 1 eye.")
+  palindrome("five|\_/|four")
