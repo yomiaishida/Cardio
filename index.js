@@ -556,3 +556,48 @@ function truthCheck(collection, pre) {
 }
 
 truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex")
+
+// FCC Make A Person
+var Person = function(firstAndLast) {
+  // Only change code below this line
+  // Complete the method below and implement the others similarly
+  let fullname = firstAndLast
+  this.getFullName = function() {
+    // console.log(firstAndLast)
+    fullname = firstAndLast
+    return fullname;
+  };
+  this.getFirstName = function() {
+    let firstname = fullname.split(' ').slice(0,1).join('')
+    return firstname
+  }
+  this.getLastName = function() {
+    let lastname = fullname.split(' ')
+    return lastname[1]
+  }
+  this.getFullName = function() {
+    return fullname
+  }
+  this.setFirstName = function (first) {
+    let sefirst = fullname.split(' ').slice(0, 1).join('')
+    fullname = fullname.replace(sefirst, first)
+    return fullname
+  }
+  this.setLastName = function (last) {
+    let setlast = fullname.split(' ').slice(1).join('')
+    fullname = fullname.replace(setlast, last)
+    return fullname
+  }
+  this.setFullName = function(newName) {
+    return fullname = newName
+  }
+};
+
+var bob = new Person('Bob Ross');
+console.log(bob.setLastName('Rock'));
+bob.getFirstName()
+bob.getLastName()
+bob.getFullName()
+bob.setFirstName('first')
+bob.setLastName('last')
+bob.setFullName('first Last')
