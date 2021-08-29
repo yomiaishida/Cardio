@@ -628,7 +628,8 @@ palindrome("five|_/|four");
 function rot13(str) {
   let st = str;
   let arr = [];
-  let trueArr = [];
+  let correctNumArr = [];
+  let correctStrArr = [];
 
   for (let i = 0; i < st.length; i++) {
     let pusher;
@@ -637,28 +638,20 @@ function rot13(str) {
     } else {
       pusher = st.charCodeAt(i) + 13;
     }
-    // console.log(st.charCodeAt(i))
     arr.push(pusher);
   }
   arr.forEach((num) => {
     if (num > 90) {
       let cal = num - 90 + 64;
-      // console.log(cal)
-      trueArr.push(cal);
+      correctNumArr.push(cal);
     } else {
-      trueArr.push(num);
+      correctNumArr.push(num);
     }
   });
-  let correctStrArr = [];
-  for (let i = 0; i < trueArr.length; i++) {
-    let realStr = String.fromCharCode(trueArr[i]);
+  for (let i = 0; i < correctNumArr.length; i++) {
+    let realStr = String.fromCharCode(correctNumArr[i]);
     correctStrArr.push(realStr);
   }
-  console.log(correctStrArr.join(""));
-  // console.log(String.fromCharCode('45', 80+13-90+64))
-  // let final = trueArr.map(numb => String.fromCharCode(numb.toString))
-  // console.log(final)
-
   return correctStrArr.join("");
 }
 
