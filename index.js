@@ -552,107 +552,95 @@ binaryAgent(
 
 // FCC Everything Be True
 function truthCheck(collection, pre) {
-  return collection.every((col) => (col[pre] ? true : false));
+  return collection.every((col) => col[pre] ? true : false)
 }
 
-truthCheck(
-  [
-    { user: "Tinky-Winky", sex: "male" },
-    { user: "Dipsy" },
-    { user: "Laa-Laa", sex: "female" },
-    { user: "Po", sex: "female" },
-  ],
-  "sex"
-);
+truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex")
 
 // FCC Make A Person
-var Person = function (firstAndLast) {
+var Person = function(firstAndLast) {
   // Only change code below this line
   // Complete the method below and implement the others similarly
-  let fullname = firstAndLast;
-  this.getFullName = function () {
+  let fullname = firstAndLast
+  this.getFullName = function() {
     // console.log(firstAndLast)
-    fullname = firstAndLast;
+    fullname = firstAndLast
     return fullname;
   };
-  this.getFirstName = function () {
-    let firstname = fullname.split(" ").slice(0, 1).join("");
-    return firstname;
-  };
-  this.getLastName = function () {
-    let lastname = fullname.split(" ");
-    return lastname[1];
-  };
-  this.getFullName = function () {
-    return fullname;
-  };
+  this.getFirstName = function() {
+    let firstname = fullname.split(' ').slice(0,1).join('')
+    return firstname
+  }
+  this.getLastName = function() {
+    let lastname = fullname.split(' ')
+    return lastname[1]
+  }
+  this.getFullName = function() {
+    return fullname
+  }
   this.setFirstName = function (first) {
-    let sefirst = fullname.split(" ").slice(0, 1).join("");
-    fullname = fullname.replace(sefirst, first);
-    return fullname;
-  };
+    let sefirst = fullname.split(' ').slice(0, 1).join('')
+    fullname = fullname.replace(sefirst, first)
+    return fullname
+  }
   this.setLastName = function (last) {
-    let setlast = fullname.split(" ").slice(1).join("");
-    fullname = fullname.replace(setlast, last);
-    return fullname;
-  };
-  this.setFullName = function (newName) {
-    return (fullname = newName);
-  };
+    let setlast = fullname.split(' ').slice(1).join('')
+    fullname = fullname.replace(setlast, last)
+    return fullname
+  }
+  this.setFullName = function(newName) {
+    return fullname = newName
+  }
 };
 
-var bob = new Person("Bob Ross");
-console.log(bob.setLastName("Rock"));
-bob.getFirstName();
-bob.getLastName();
-bob.getFullName();
-bob.setFirstName("first");
-bob.setLastName("last");
-bob.setFullName("first Last");
+var bob = new Person('Bob Ross');
+console.log(bob.setLastName('Rock'));
+bob.getFirstName()
+bob.getLastName()
+bob.getFullName()
+bob.setFirstName('first')
+bob.setLastName('last')
+bob.setFullName('first Last')
 
 // FCC Project: Palindrome Checker
 function palindrome(str) {
   let alphabetRegex = /[A-Za-z0-9]+/gi; // Change this line
   let result = str.match(alphabetRegex);
-  let testAr = result.join("").split("").reverse().join("").toLowerCase();
-  let joinedRes = result.join("").toLowerCase();
-  console.log(testAr);
-  return joinedRes === testAr ? true : false;
+  let testAr = result.join('').split('').reverse().join('').toLowerCase()
+  let joinedRes = result.join('').toLowerCase()
+  console.log(testAr)
+   return joinedRes === testAr ? true : false
+  }
+  
+  
+  
+  palindrome("My age is 0, 0 si ega ym.");
+  palindrome("0_0 (: /-\ :) 0-0");
+  palindrome("1 eye for of 1 eye.")
+  palindrome("five|\_/|four")
+
+// FCC Project: Phone Number Validator
+function telephoneCheck(str) {
+
+  console.log(str[0].replace(/[^-]/g, "").length)
+  if(str.replace(/[^-]/g, "").length > 2 || str[0].replace(/[^-]/g, "").length === 1) {
+    return false
+  }
+
+  let polish = str.replace(/-| /g, '')
+  if(polish.length === 10 ) {
+    return true
+  }else  if(polish.length === 11 && polish[0]=== '1'){
+    
+    return true
+  } else if (polish[0] === '(' && polish[4] === ')' && polish.length === 12) {
+    return true
+  } else if (polish[0]=== '1' && polish[1] === '(' && polish[5] === ')') {
+    return true
+  }
+  return false;
 }
 
-palindrome("My age is 0, 0 si ega ym.");
-palindrome("0_0 (: /- :) 0-0");
-palindrome("1 eye for of 1 eye.");
-palindrome("five|_/|four");
-
-function rot13(str) {
-  let st = str;
-  let arr = [];
-  let correctNumArr = [];
-  let correctStrArr = [];
-
-  for (let i = 0; i < st.length; i++) {
-    let pusher;
-    if (st.charCodeAt(i) < "64") {
-      pusher = st.charCodeAt(i);
-    } else {
-      pusher = st.charCodeAt(i) + 13;
-    }
-    arr.push(pusher);
-  }
-  arr.forEach((num) => {
-    if (num > 90) {
-      let cal = num - 90 + 64;
-      correctNumArr.push(cal);
-    } else {
-      correctNumArr.push(num);
-    }
-  });
-  for (let i = 0; i < correctNumArr.length; i++) {
-    let realStr = String.fromCharCode(correctNumArr[i]);
-    correctStrArr.push(realStr);
-  }
-  return correctStrArr.join("");
-}
-
-rot13("SERR PBQR PNZC.");
+telephoneCheck("-1 (757) 622-7382");
+telephoneCheck("1 555)555-5555");
+telephoneCheck("1 555)555-5555");
