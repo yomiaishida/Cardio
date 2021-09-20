@@ -644,3 +644,27 @@ function telephoneCheck(str) {
 telephoneCheck("-1 (757) 622-7382");
 telephoneCheck("1 555)555-5555");
 telephoneCheck("1 555)555-5555");
+
+// Codility Binary Gap Algorithm
+function solution(N) {
+  // write your code in JavaScript (Node.js 8.9.4)
+  let len = 0
+  let result;
+  let bin = N.toString(2); 
+  if(bin[0] === '1' && bin.match(/0+1/gm)) {
+  result = bin.match(/0+1/gm)
+  for(let i = 0; i <result.length; i++) {
+      if(result[i].length > len) {
+          len = result[i].length-1
+      }
+  }
+  } else {
+      len = 0
+      return len
+  }
+  
+  return len
+}
+solution(32)
+solution(15)
+solution(1041)
