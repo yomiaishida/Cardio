@@ -668,3 +668,12 @@ function solution(N) {
 solution(32)
 solution(15)
 solution(1041)
+
+// Codility - OddOcurrencesInArray
+
+function oddOcurrencesInArray(n) {
+  for(let i= 0; i < n.length; i++) {
+    
+  }
+}
+
