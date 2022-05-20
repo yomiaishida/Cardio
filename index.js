@@ -673,6 +673,8 @@ solution(1041)
 
 function oddOcurrencesInArray(n) {
   const firstNumber = n[0]
+  const sortedList = A.sort((a, b) => a-b)
+    console.log(sortedList)
   
   for(let i= 0; i < n.length; i++) {
     
