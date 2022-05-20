@@ -672,6 +672,8 @@ solution(1041)
 // Codility - OddOcurrencesInArray
 
 function oddOcurrencesInArray(n) {
+  const firstNumber = n[0]
+  
   for(let i= 0; i < n.length; i++) {
     
   }
