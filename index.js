@@ -671,13 +671,20 @@ solution(1041)
 
 // Codility - OddOcurrencesInArray
 
-function oddOcurrencesInArray(n) {
-  const firstNumber = n[0]
+function oddOcurrencesInArray(A) {
+  const firstNumber = A[0]
+  let counter = 0
   const sortedList = A.sort((a, b) => a-b)
     console.log(sortedList)
   
-  for(let i= 0; i < n.length; i++) {
-    
-  }
+  sortedList.map((num) => {
+    if(num === firstNumber) {
+      counter+=1
+      console.log(counter)
+      console.log('yes')
+    }
+  })
 }
+
+oddOcurrencesInArray([1,3,1,3,2,2,3])
 
