@@ -677,19 +677,21 @@ function oddOcurrencesInArray(A) {
   const sortedList = A.sort((a, b) => a-b)
      // console.log(sortedList)
   
-  sortedList.map((num) => {
-    if(num === firstNumber) {
-      counter+=1
-      // console.log(counter)
-    } 
+  sortedArr.map((num) => {
+        if(num === firstNumber) {
+            counter+1
+        }
 
-     if(counter % 2 === 0) {
-      sortedList.splice(0, counter)
-      console.log(sortedList)
-    } else {
-      // console.log(num[counter])
+        if(counter % 2 === 0) {
+      sortedArr.splice(0, counter-1)
+      console.log(sortedArr)
+    } else if(counter % 2 !== 0) {
     }
+      odd = sortedArr[0]
+
   })
+
+  return odd
 }
 
 oddOcurrencesInArray([1,3,1,3,2,2,3])
