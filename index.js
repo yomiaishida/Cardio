@@ -675,13 +675,19 @@ function oddOcurrencesInArray(A) {
   const firstNumber = A[0]
   let counter = 0
   const sortedList = A.sort((a, b) => a-b)
-    console.log(sortedList)
+     // console.log(sortedList)
   
   sortedList.map((num) => {
     if(num === firstNumber) {
       counter+=1
-      console.log(counter)
-      console.log('yes')
+      // console.log(counter)
+    } 
+
+     if(counter % 2 === 0) {
+      sortedList.splice(0, counter)
+      console.log(sortedList)
+    } else {
+      // console.log(num[counter])
     }
   })
 }
