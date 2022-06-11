@@ -22,3 +22,12 @@ var t1 = performance.now();
 addUpTo(1000000000);
 var t2 = performance.now();
 console.log(`Time Elapsed: ${(t2 - t1) / 1000} seconds`);
+
+// O(n²)
+function printAllPairs(n) {
+  for (var i = 0; i < n; i++) {
+    for (var j = 0; j < n; j++) {
+      console.log(i, j);
+    }
+  }
+}
