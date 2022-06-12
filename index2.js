@@ -1,4 +1,6 @@
 // JavaScript Materclass
+
+// Time Coomplexity
 // Add up to n 1
 function addUpTo(n) {
   let total = 0;
@@ -31,3 +33,14 @@ function printAllPairs(n) {
     }
   }
 }
+
+// Space Complexity
+function double(arr) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    newArr.push(2 * arr[i]);
+  }
+  return newArr;
+}
+
+double([2, 3, 4]);
