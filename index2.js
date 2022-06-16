@@ -86,9 +86,9 @@ function isAlphaNumeric(char) {
   if (
     !(code > 47 && code < 58) && // numeric (0-9)
     !(code > 64 && code < 91) && // numeric (0-9)
-    !(!code > 47 && code < 58)
+    !(code > 96 && code < 123)
   ) {
-    return false; // lower alpha (a-z) }
+    return false; // lower alpha (a-z)
   }
   return true;
 }
