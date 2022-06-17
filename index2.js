@@ -99,21 +99,15 @@ function isAlphaNumeric(char) {
 function same(arr1, arr2) {
   let sort1 = arr1.sort();
   let sort2 = arr2.sort();
-  console.log(sort2);
   let sq = [];
   if (sort1.length !== sort2.length) {
     return false;
   }
   sort2.map((num) => {
     sq.push(Math.sqrt(num));
-    console.log(sq);
-    if (sort1.indexOf(sq)) {
-      console.log("yes");
-    }
   });
   const isEqual =
     sort1.length === sq.length && sort1.every((val) => sq.includes(val));
-  console.log(isEqual);
   return isEqual ? true : "Arrrgg";
 }
 
