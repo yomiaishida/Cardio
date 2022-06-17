@@ -45,6 +45,7 @@ function double(arr) {
 
 double([2, 3, 4]);
 
+// Problem solving aproach
 function charCount(str) {
   // do something
   // return an object with keys that are lowercase alphanumeric characters in the string; values should be the counts for those characters
@@ -92,3 +93,29 @@ function isAlphaNumeric(char) {
   }
   return true;
 }
+
+// Problem solving patterns
+// Frequency Counter
+function same(arr1, arr2) {
+  let sort1 = arr1.sort();
+  let sort2 = arr2.sort();
+  console.log(sort2);
+  let sq = [];
+  if (sort1.length !== sort2.length) {
+    return false;
+  }
+  sort2.map((num) => {
+    sq.push(Math.sqrt(num));
+    console.log(sq);
+    if (sort1.indexOf(sq)) {
+      console.log("yes");
+    }
+  });
+  const isEqual =
+    sort1.length === sq.length && sort1.every((val) => sq.includes(val));
+  console.log(isEqual);
+  return isEqual ? true : "Arrrgg";
+}
+
+same([1, 2, 3, 4], [4, 1, 9]);
+same([1, 2, 3], [4, 1, 9]);
