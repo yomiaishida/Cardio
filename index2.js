@@ -141,3 +141,32 @@ function same(arr1, arr2) {
 }
 
 same([1, 2, 3, 2, 5], [9, 1, 4, 4, 11]);
+
+// isAnagram
+function isAnagram(a, b) {
+  let arr1 = {};
+  let arr2 = {};
+
+  for (let val of a) {
+    arr1[val] = (arr1[val] || 0) + 1;
+  }
+
+  for (let val of b) {
+    arr2[val] = (arr2[val] || 0) + 1;
+  }
+
+  if (a.length !== b.length) {
+    return false;
+  }
+  for (let key in arr1) {
+    if (!(key in arr2)) {
+      return false;
+    }
+    if (arr1[key] !== arr2[key]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+isAnagram("anan", "anna");
