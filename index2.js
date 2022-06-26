@@ -230,3 +230,16 @@ function sumZero1(arr) {
 }
 
 sumZero1([-4, -3, -2, -1, 0, 3, 5, 10]);
+
+// Multiple Counters: Unique values solution
+function countUniqueValues(arr) {
+  if (arr.length === 0) return 0;
+  var i = 0;
+  for (var j = 1; j < arr.length; j++) {
+    if (arr[i] !== arr[j]) {
+      i++;
+      arr[i] = arr[j];
+    }
+  }
+  return i + 1;
+}
