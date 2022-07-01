@@ -280,3 +280,29 @@ function maxSubarraySum1(arr, num) {
 }
 
 maxSubarraySum([2, 6, 9, 2, 1, 8, 5, 6, 3], 3);
+
+// Recursive Functions
+function counDown(num) {
+  if (num <= 0) {
+    return;
+  }
+  console.log(num);
+  num--;
+  counDown(num);
+}
+
+counDown(6);
+
+function sumRange(num) {
+  if (num === 1) return 1;
+  return num + sumRange(num - 1);
+}
+
+sumRange(4);
+
+function factorial(num) {
+  if (num === 1) return 1;
+  return num * factorial(num - 1);
+}
+
+factorial(2);
