@@ -348,3 +348,22 @@ function collectOddValues2(arr) {
 
 collectOddValues2([1, 2, 3, 4, 5, 6, 7, 8, 9]);
 
+// Linear Search example
+function linear(arr, val) {
+  let res;
+  console.log(arr.indexOf(val))
+
+  if(!arr.indexOf(val)) {
+      return -1
+  }
+  
+  const ma = arr.map((num) => {
+      if(num == val) {
+          res = num
+      } 
+  })
+
+  return res
+}
+
+linear([1,3,2,5,6], 9)
