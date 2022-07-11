@@ -359,11 +359,7 @@ function linear(arr, val) {
   
   const ma = arr.map((num) => {
       if(num == val) {
-<<<<<<< HEAD
           res = arr.indexOf(val)
-=======
-          res = num
->>>>>>> 76eb2d782e7288d62fd39e082181a2c504ae625d
       } 
   })
 
