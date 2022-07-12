@@ -351,9 +351,7 @@ collectOddValues2([1, 2, 3, 4, 5, 6, 7, 8, 9]);
 // Linear Search example
 function linear(arr, val) {
   let res;
-  console.log(arr.indexOf(val))
-
-  if(!arr.indexOf(val)) {
+  if(arr.indexOf(val) === -1) {
       return -1
   }
   
