@@ -365,3 +365,23 @@ function linear(arr, val) {
 }
 
 linear([1,3,2,5,6], 9)
+
+// Binary Search
+function binarySearch(arr, val) {
+  let left = 0
+  let right = arr.length-1
+  let middle = Math.round(right/2)
+
+   if (arr[middle] === val) return middle
+       
+  while (arr[middle] !== val && left <= right ) {
+      if(arr[middle] > val) right = middle -1;
+          else  left = middle + 1; 
+      middle = Math.round((left + left)/2)
+  }
+  
+  return arr[middle] === val ? middle : -1
+  
+} 
+
+binarySearch([1,2,3,4,5,6,7,8,9], 8)
