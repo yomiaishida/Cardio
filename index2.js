@@ -461,3 +461,24 @@ function bubbleSort(arr) {
 }
 
 bubbleSort([2,5,6,3])
+
+// Selection Sort
+function selectionSort(arr) {
+  let min = arr[0]
+  for (let i = 0; i < arr.length; i++) {
+      for (let j = 0; j < arr.length; j++) {
+          // console.log(arr[i], arr[j+1])
+          if(arr[j+1] < min) {
+              min = arr[j+1]
+          let swapped =[arr[j], arr[j+1]] = [arr[j+1], arr[j]]
+
+              console.log(swapped)
+          }
+          min++
+                          
+      }
+  }
+  console.log(arr)
+}
+
+selectionSort([9,4,2,7,6])
