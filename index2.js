@@ -350,18 +350,23 @@ collectOddValues2([1, 2, 3, 4, 5, 6, 7, 8, 9]);
 
 // Linear Search example
 function linear(arr, val) {
-  let res;
-  if(arr.indexOf(val) === -1) {
-      return -1
-  }
+  // let res;
+  // if(arr.indexOf(val) === -1) {
+  //     return -1
+  // }
   
-  const ma = arr.map((num) => {
-      if(num == val) {
-          res = arr.indexOf(val)
-      } 
-  })
+  // const ma = arr.map((num) => {
+  //     if(num == val) {
+  //         res = arr.indexOf(val)
+  //     } 
+  // })
 
-  return res
+  // return res
+
+  for(var i = 0; i < arr.length; i++) {
+    if(arr[i] === val) return i
+  }
+  return -1
 }
 
 linear([1,3,2,5,6], 9)
