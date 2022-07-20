@@ -693,17 +693,16 @@ function oddOcurrencesInArray(A) {
 
   // return odd
 
-    let sorted = arr.sort((a, b) => a-b)
-    console.log(arr)
+  // Multiple pointer parttern
+    let sorted = A.sort((a, b) => a-b)
     let left = 0
     let next = 1
-    while(next <= arr.length -1) {
-        if(arr[left] !== arr[next]) return arr[left]
+    while(next <= A.length -1) {
+        if(A[left] !== A[next]) return A[left]
         left= next+1
         next= next+2
     }
-
-
+    return A[A.length - 1]
 }
 
 oddOcurrencesInArray([1,1,2,2,3,5,5,2,2,6,6, 100,100])
