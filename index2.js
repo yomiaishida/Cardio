@@ -392,23 +392,20 @@ function binarySearch(arr, val) {
 binarySearch([1,2,3,4,5,6,7,8,9], 8)
 
 // Naive String Search
-function searchString(long, short) {
-  let counter = 0
-  for(let i=0; i<long.length; i++) {
-      for (let j = 0; j < short.length; j++) {
-          console.log(short[j],long[i+j])
-          if(short[j] !== long[i+j]) {
-              break
-          }
-          if(j === short.length -1) {
-              counter++
-          }
+function naiveSearch(str1, str2) {
+  let count = 0
+  for (let i = 0; i < str1.length; i++) {
+      for (let j = 0; j < str2.length; j++) {
+          if(str2[j] !== str1[i+j]) break;
+          if( j === str2.length-1) {
+          count++
+      }
       }
   }
-  return counter
+  return count
 }
 
-searchString('wobwogwowom', 'wo')
+naiveSearch('wowlowowlol', 'wow')
 
 // Naive Bubble Sort
 function bubbleSort(arr) {
