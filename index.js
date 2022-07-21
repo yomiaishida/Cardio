@@ -669,8 +669,23 @@ solution(32)
 solution(15)
 solution(1041)
 
-// Codility - OddOcurrencesInArray
+function swap(arr, k) {
+  let left = 0
+  let end = arr[arr.length-1]
+  while(k > 0) {
+      arr.unshift(end)
+      arr.pop()
+      end = arr[arr.length-1]
+      k--
+      console.log(k)
+      
+  }
+  return arr
+}
 
+swap([3, 8, 9, 7, 6], 6)
+
+// Codility - OddOcurrencesInArray
 function oddOcurrencesInArray(A) {
   // const firstNumber = A[0]
   // let counter = 0
