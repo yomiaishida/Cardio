@@ -676,6 +676,7 @@ solution(32);
 solution(15);
 solution(1041);
 
+// Codility Cyclic Rotation
 function cyclicRotation(arr, k) {
   let end = arr[arr.length - 1];
   while (k > 0) {

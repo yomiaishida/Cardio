@@ -334,15 +334,15 @@ collectOddValues2([1, 2, 3, 4, 5, 6, 7, 8, 9]);
 function collectOddValues2(arr) {
   let newArr = [];
 
-  if(arr.length ===0) {
-    return newArr
+  if (arr.length === 0) {
+    return newArr;
   }
 
-  if(arr[0] % 2 !== 0) {
-    newArr.push(arr[0]) 
+  if (arr[0] % 2 !== 0) {
+    newArr.push(arr[0]);
   }
 
-  newArr = newArr.concat(collectOddValues(arr.slice(1)))
+  newArr = newArr.concat(collectOddValues(arr.slice(1)));
   return newArr;
 }
 
@@ -354,131 +354,145 @@ function linear(arr, val) {
   // if(arr.indexOf(val) === -1) {
   //     return -1
   // }
-  
+
   // const ma = arr.map((num) => {
   //     if(num == val) {
   //         res = arr.indexOf(val)
-  //     } 
+  //     }
   // })
 
   // return res
 
-  for(var i = 0; i < arr.length; i++) {
-    if(arr[i] === val) return i
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] === val) return i;
   }
-  return -1
+  return -1;
 }
 
-linear([1,3,2,5,6], 9)
+linear([1, 3, 2, 5, 6], 9);
 
 // Binary Search
 function binarySearch(arr, val) {
-  let left = 0
-  let right = arr.length-1
-  let middle = Math.round((left + right)/2)
+  let left = 0;
+  let right = arr.length - 1;
+  let middle = Math.round((left + right) / 2);
 
-   if (arr[middle] === val) return middle
-       
-  while (arr[middle] !== val && left <= right ) {
-      if(arr[middle] > val) right = middle -1;
-          else  left = middle + 1; 
-      middle = Math.round((left + left)/2)
+  if (arr[middle] === val) return middle;
+
+  while (arr[middle] !== val && left <= right) {
+    if (arr[middle] > val) right = middle - 1;
+    else left = middle + 1;
+    middle = Math.round((left + left) / 2);
   }
-  
-  return arr[middle] === val ? middle : -1
-  
-} 
 
-binarySearch([1,2,3,4,5,6,7,8,9], 8)
+  return arr[middle] === val ? middle : -1;
+}
+
+binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9], 8);
 
 // Naive String Search
 function naiveSearch(str1, str2) {
-  let count = 0
+  let count = 0;
   for (let i = 0; i < str1.length; i++) {
-      for (let j = 0; j < str2.length; j++) {
-          if(str2[j] !== str1[i+j]) break;
-          if( j === str2.length-1) {
-          count++
+    for (let j = 0; j < str2.length; j++) {
+      if (str2[j] !== str1[i + j]) break;
+      if (j === str2.length - 1) {
+        count++;
       }
-      }
+    }
   }
-  return count
+  return count;
 }
 
-naiveSearch('wowlowowlol', 'wow')
+naiveSearch("wowlowowlol", "wow");
 
 // Naive Bubble Sort
 function bubbleSort(arr) {
-  for(var i= 0; i < arr.length; i++ ) {
-      for(var j = 0; j < arr.length; j++) {
-          // console.log(arr, arr[j], arr[j+1])
-          if(arr[j] > arr[j+1]) {
-              // SWAP!
-              var temp = arr[j]
-              arr[j] = arr[j+1]
-              arr[j+1] = temp
-          }
+  for (var i = 0; i < arr.length; i++) {
+    for (var j = 0; j < arr.length; j++) {
+      // console.log(arr, arr[j], arr[j+1])
+      if (arr[j] > arr[j + 1]) {
+        // SWAP!
+        var temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
       }
+    }
   }
   return arr;
 }
 
-bubbleSort([2,5,6,3])
+bubbleSort([2, 5, 6, 3]);
 
 // Optimized Bubble Sort
 function bubbleSort(arr) {
   const swap = (arr, idx1, idx2) => {
-      [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]]
-  }
+    [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
+  };
   for (let i = arr.length; i > 0; i--) {
-      for (let j = 0; j < i - 1; j++) {
-          // console.log(arr, arr[j], arr[j+1])
-          if(arr[j] > arr[j+1]) {
-              swap(arr, j, j+1)
-          }
+    for (let j = 0; j < i - 1; j++) {
+      // console.log(arr, arr[j], arr[j+1])
+      if (arr[j] > arr[j + 1]) {
+        swap(arr, j, j + 1);
       }
+    }
   }
-  return arr
+  return arr;
 }
 
-bubbleSort([2,5,6,3])
+bubbleSort([2, 5, 6, 3]);
 
 // Optimized Bubble Sort with noSwaps
 function bubbleSort(arr) {
   let noSwaps;
   const swap = (arr, idx1, idx2) => {
-      [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]]
-  }
+    [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
+  };
   for (let i = arr.length; i > 0; i--) {
-      noSwaps = true
-      for (let j = 0; j < i - 1; j++) {
-          console.log(arr, arr[j], arr[j+1])
-          if(arr[j] > arr[j+1]) {
-              swap(arr, j, j+1)
-          }
+    noSwaps = true;
+    for (let j = 0; j < i - 1; j++) {
+      console.log(arr, arr[j], arr[j + 1]);
+      if (arr[j] > arr[j + 1]) {
+        swap(arr, j, j + 1);
+        noSwaps = false;
       }
-      if(noSwaps) break;
+    }
+    if (noSwaps) break;
   }
-  return arr
+  return arr;
 }
 
-bubbleSort([2,5,6,3])
+bubbleSort([2, 5, 6, 3]);
 
 // Selection Sort
 function selectionSort(arr) {
   for (let i = 0; i < arr.length; i++) {
-      let min = i
-      for (let j = i+1; j < arr.length; j++) {
-          if(arr[j] < arr[min]) {
-              min = j
-          }
-          }
-      if(i !== min) {
-              console.log(i, min)
-          let swapped =[arr[i], arr[min]] = [arr[min], arr[i]]    
-          }
+    let min = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[min]) {
+        min = j;
+      }
+    }
+    if (i !== min) {
+      console.log(i, min);
+      let swapped = ([arr[i], arr[min]] = [arr[min], arr[i]]);
+    }
   }
-  return arr
+  return arr;
 }
 
-selectionSort([9,4,2,7,6])
+selectionSort([9, 4, 2, 7, 6]);
+
+// Insertion Sort
+function insertionSort(arr) {
+  for (let i = 1; i < arr.length; i++) {
+    let currentVal = arr[i];
+    for (var j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
+      arr[j + 1] = arr[j];
+    }
+    arr[j + 1] = currentVal;
+  }
+  return arr;
+}
+
+insertionSort([2, 1, 9, 78, 5]);
