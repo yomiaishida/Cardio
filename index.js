@@ -552,91 +552,98 @@ binaryAgent(
 
 // FCC Everything Be True
 function truthCheck(collection, pre) {
-  return collection.every((col) => col[pre] ? true : false)
+  return collection.every((col) => (col[pre] ? true : false));
 }
 
-truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex")
+truthCheck(
+  [
+    { user: "Tinky-Winky", sex: "male" },
+    { user: "Dipsy" },
+    { user: "Laa-Laa", sex: "female" },
+    { user: "Po", sex: "female" },
+  ],
+  "sex"
+);
 
 // FCC Make A Person
-var Person = function(firstAndLast) {
+var Person = function (firstAndLast) {
   // Only change code below this line
   // Complete the method below and implement the others similarly
-  let fullname = firstAndLast
-  this.getFullName = function() {
+  let fullname = firstAndLast;
+  this.getFullName = function () {
     // console.log(firstAndLast)
-    fullname = firstAndLast
+    fullname = firstAndLast;
     return fullname;
   };
-  this.getFirstName = function() {
-    let firstname = fullname.split(' ').slice(0,1).join('')
-    return firstname
-  }
-  this.getLastName = function() {
-    let lastname = fullname.split(' ')
-    return lastname[1]
-  }
-  this.getFullName = function() {
-    return fullname
-  }
+  this.getFirstName = function () {
+    let firstname = fullname.split(" ").slice(0, 1).join("");
+    return firstname;
+  };
+  this.getLastName = function () {
+    let lastname = fullname.split(" ");
+    return lastname[1];
+  };
+  this.getFullName = function () {
+    return fullname;
+  };
   this.setFirstName = function (first) {
-    let sefirst = fullname.split(' ').slice(0, 1).join('')
-    fullname = fullname.replace(sefirst, first)
-    return fullname
-  }
+    let sefirst = fullname.split(" ").slice(0, 1).join("");
+    fullname = fullname.replace(sefirst, first);
+    return fullname;
+  };
   this.setLastName = function (last) {
-    let setlast = fullname.split(' ').slice(1).join('')
-    fullname = fullname.replace(setlast, last)
-    return fullname
-  }
-  this.setFullName = function(newName) {
-    return fullname = newName
-  }
+    let setlast = fullname.split(" ").slice(1).join("");
+    fullname = fullname.replace(setlast, last);
+    return fullname;
+  };
+  this.setFullName = function (newName) {
+    return (fullname = newName);
+  };
 };
 
-var bob = new Person('Bob Ross');
-console.log(bob.setLastName('Rock'));
-bob.getFirstName()
-bob.getLastName()
-bob.getFullName()
-bob.setFirstName('first')
-bob.setLastName('last')
-bob.setFullName('first Last')
+var bob = new Person("Bob Ross");
+console.log(bob.setLastName("Rock"));
+bob.getFirstName();
+bob.getLastName();
+bob.getFullName();
+bob.setFirstName("first");
+bob.setLastName("last");
+bob.setFullName("first Last");
 
 // FCC Project: Palindrome Checker
 function palindrome(str) {
   let alphabetRegex = /[A-Za-z0-9]+/gi; // Change this line
   let result = str.match(alphabetRegex);
-  let testAr = result.join('').split('').reverse().join('').toLowerCase()
-  let joinedRes = result.join('').toLowerCase()
-  console.log(testAr)
-   return joinedRes === testAr ? true : false
-  }
-  
-  
-  
-  palindrome("My age is 0, 0 si ega ym.");
-  palindrome("0_0 (: /-\ :) 0-0");
-  palindrome("1 eye for of 1 eye.")
-  palindrome("five|\_/|four")
+  let testAr = result.join("").split("").reverse().join("").toLowerCase();
+  let joinedRes = result.join("").toLowerCase();
+  console.log(testAr);
+  return joinedRes === testAr ? true : false;
+}
+
+palindrome("My age is 0, 0 si ega ym.");
+palindrome("0_0 (: /- :) 0-0");
+palindrome("1 eye for of 1 eye.");
+palindrome("five|_/|four");
 
 // FCC Project: Phone Number Validator
 function telephoneCheck(str) {
-
-  console.log(str[0].replace(/[^-]/g, "").length)
-  if(str.replace(/[^-]/g, "").length > 2 || str[0].replace(/[^-]/g, "").length === 1) {
-    return false
+  console.log(str[0].replace(/[^-]/g, "").length);
+  if (
+    str.replace(/[^-]/g, "").length > 2 ||
+    str[0].replace(/[^-]/g, "").length === 1
+  ) {
+    return false;
   }
 
-  let polish = str.replace(/-| /g, '')
-  if(polish.length === 10 ) {
-    return true
-  }else  if(polish.length === 11 && polish[0]=== '1'){
-    
-    return true
-  } else if (polish[0] === '(' && polish[4] === ')' && polish.length === 12) {
-    return true
-  } else if (polish[0]=== '1' && polish[1] === '(' && polish[5] === ')') {
-    return true
+  let polish = str.replace(/-| /g, "");
+  if (polish.length === 10) {
+    return true;
+  } else if (polish.length === 11 && polish[0] === "1") {
+    return true;
+  } else if (polish[0] === "(" && polish[4] === ")" && polish.length === 12) {
+    return true;
+  } else if (polish[0] === "1" && polish[1] === "(" && polish[5] === ")") {
+    return true;
   }
   return false;
 }
@@ -648,42 +655,39 @@ telephoneCheck("1 555)555-5555");
 // Codility Binary Gap Algorithm
 function solution(N) {
   // write your code in JavaScript (Node.js 8.9.4)
-  let len = 0
+  let len = 0;
   let result;
-  let bin = N.toString(2); 
-  if(bin[0] === '1' && bin.match(/0+1/gm)) {
-  result = bin.match(/0+1/gm)
-  for(let i = 0; i <result.length; i++) {
-      if(result[i].length > len) {
-          len = result[i].length-1
+  let bin = N.toString(2);
+  if (bin[0] === "1" && bin.match(/0+1/gm)) {
+    result = bin.match(/0+1/gm);
+    for (let i = 0; i < result.length; i++) {
+      if (result[i].length > len) {
+        len = result[i].length - 1;
       }
-  }
+    }
   } else {
-      len = 0
-      return len
+    len = 0;
+    return len;
   }
-  
-  return len
-}
-solution(32)
-solution(15)
-solution(1041)
 
-function swap(arr, k) {
-  let left = 0
-  let end = arr[arr.length-1]
-  while(k > 0) {
-      arr.unshift(end)
-      arr.pop()
-      end = arr[arr.length-1]
-      k--
-      console.log(k)
-      
+  return len;
+}
+solution(32);
+solution(15);
+solution(1041);
+
+function cyclicRotation(arr, k) {
+  let end = arr[arr.length - 1];
+  while (k > 0) {
+    arr.unshift(end);
+    arr.pop();
+    end = arr[arr.length - 1];
+    k--;
   }
-  return arr
+  return arr;
 }
 
-swap([3, 8, 9, 7, 6], 6)
+cyclicRotation([3, 8, 9, 7, 6], 6);
 
 // Codility - OddOcurrencesInArray
 function oddOcurrencesInArray(A) {
@@ -691,7 +695,7 @@ function oddOcurrencesInArray(A) {
   // let counter = 0
   // const sortedList = A.sort((a, b) => a-b)
   //    // console.log(sortedList)
-  
+
   // sortedArr.map((num) => {
   //       if(num === firstNumber) {
   //           counter+1
@@ -709,16 +713,15 @@ function oddOcurrencesInArray(A) {
   // return odd
 
   // Multiple pointer parttern
-    let sorted = A.sort((a, b) => a-b)
-    let left = 0
-    let next = 1
-    while(next <= A.length -1) {
-        if(A[left] !== A[next]) return A[left]
-        left= next+1
-        next= next+2
-    }
-    return A[A.length - 1]
+  let sorted = A.sort((a, b) => a - b);
+  let left = 0;
+  let next = 1;
+  while (next <= A.length - 1) {
+    if (A[left] !== A[next]) return A[left];
+    left = next + 1;
+    next = next + 2;
+  }
+  return A[A.length - 1];
 }
 
-oddOcurrencesInArray([1,1,2,2,3,5,5,2,2,6,6, 100,100])
-
+oddOcurrencesInArray([1, 1, 2, 2, 3, 5, 5, 2, 2, 6, 6, 100, 100]);
