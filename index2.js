@@ -496,3 +496,31 @@ function insertionSort(arr) {
 }
 
 insertionSort([2, 1, 9, 78, 5]);
+
+// Merge Two Sorted Arrays
+function merge(arr1, arr2) {
+  let results = [];
+  let firstArrIndex = 0;
+  let secondArrIndex = 0;
+
+  while (firstArrIndex < arr1.length && secondArrIndex < arr2.length) {
+    if (arr2[secondArrIndex] > arr1[firstArrIndex]) {
+      results.push(arr1[firstArrIndex]);
+      firstArrIndex++;
+    } else {
+      results.push(arr2[secondArrIndex]);
+      secondArrIndex++;
+    }
+  }
+  while (firstArrIndex < arr1.length) {
+    results.push(arr1[firstArrIndex]);
+    firstArrIndex++;
+  }
+  while (secondArrIndex < arr2.length) {
+    results.push(arr1[secondArrIndex]);
+    secondArrIndex++;
+  }
+  return results;
+}
+
+merge([1, 10, 50], [2, 14, 99, 100]);
