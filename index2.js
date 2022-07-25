@@ -524,3 +524,14 @@ function merge(arr1, arr2) {
 }
 
 merge([1, 10, 50], [2, 14, 99, 100]);
+
+// Merge Sort
+function mergeSort(arr) {
+  if (arr.length <= 1) return arr;
+  let mid = Math.floor(arr.length / 2);
+  let left = mergeSort(arr.slice(0, mid));
+  let right = mergeSort(arr.slice(mid));
+  return merge(left, right);
+}
+
+mergeSort([24, 10, 43, 33]);
