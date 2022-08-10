@@ -55,4 +55,18 @@ class SinglyLinkedList {
     }
     return shiftedVal;
   }
+  //   Unshift Method
+  unshift(val) {
+    var newNode = new Node(val);
+    var tempHead = this.head;
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+    } else {
+      this.head = newNode;
+      this.head.next = tempHead;
+    }
+    this.length += 1;
+    return this;
+  }
 }
