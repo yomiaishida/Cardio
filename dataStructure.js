@@ -79,4 +79,12 @@ class SinglyLinkedList {
     }
     return current;
   }
+  set(index, val) {
+    var getInd = this.get(index);
+    if (getInd) {
+      getInd.val = val;
+      return true;
+    }
+    return false;
+  }
 }
