@@ -100,4 +100,29 @@ class SinglyLinkedList {
     this.length++;
     return true;
   }
+  remove(index) {
+    if (index < 0 || index >= this.length) return undefined;
+    if (index === this.length - 1) return this.pop();
+    if (index === 0) return this.shift();
+
+    var prevInd = this.get(index - 1);
+    var removed = prevInd.next;
+    prevInd.next = removed.next;
+    this.length--;
+    return removed;
+  }
+  reverse() {
+    var node = this.head;
+    this.head = this.tail;
+    this.tail = node;
+    var next;
+    var prev = null;
+    for (var i = 0; i < this.length; i++) {
+      next = node.next;
+      node.next = prev;
+      prev = node;
+      node = next;
+    }
+    return this;
+  }
 }
