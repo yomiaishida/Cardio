@@ -228,4 +228,40 @@ class DoublyLinkedList {
     }
     return false;
   }
+  insert(index, val) {
+    if (index < 0 || index > this.length) return false;
+    if (index === 0) return !!this.unshift(val);
+    if (index == this.length) return !!this.push(val);
+
+    var newNode = new Node(val);
+    var leftItem = this.get(index - 1);
+    var rightItem = leftItem.next;
+
+    leftItem.next = newNode;
+    newNode.prev = leftItem;
+
+    rightItem.prev = newNode;
+    newNode.next = rightItem;
+
+    this.length++;
+    return true;
+  }
+  remove(index) {
+    if (index < 0 || index >= this.length) return undefined;
+    if (index === 0) return this.shift(index);
+    if (index === this.length - 1) return this.pop(index);
+
+    var deleteInd = this.get(index);
+    var leftItem = deleteInd.prev;
+    var rightItem = deleteInd.next;
+
+    leftItem.next = rightItem;
+    rightItem.prev = leftItem;
+
+    deleteInd.next = null;
+    deleteInd.prev = null;
+
+    this.length--;
+    return deleteInd;
+  }
 }
