@@ -170,4 +170,62 @@ class DoublyLinkedList {
     this.length--;
     return currTail;
   }
+  shift() {
+    if (!this.head) return undefined;
+
+    var currHead = this.head;
+
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.head = currHead.next;
+      this.head.prev = null;
+      currHead.next = null;
+    }
+    this.length--;
+    return currHead;
+  }
+  unshift(val) {
+    var newNode = new Node(val);
+    if (this.length === 0) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.head.prev = newNode;
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
+    return this;
+  }
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+    var half = Math.floor(this.length / 2);
+    if (counter === index) return current;
+    if (index <= half) {
+      var counter = 0;
+      var current = this.head;
+      while (counter !== index) {
+        current = current.next;
+        counter++;
+      }
+    } else {
+      var counter = this.length - 1;
+      var current = this.tail;
+      while (counter !== index) {
+        current = current.prev;
+        counter--;
+      }
+    }
+    return current;
+  }
+  set(index, val) {
+    var getInd = this.get(index);
+    if (getInd !== null) {
+      getInd.val = val;
+      return true;
+    }
+    return false;
+  }
 }
