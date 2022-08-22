@@ -345,3 +345,5 @@ class Queue {
 }
 
 // Intro To Trees
+// Binary tree doesn't have more than two branches
+// Every thing to the right is greater than the parent node while those to the left are smaller than the parent node
