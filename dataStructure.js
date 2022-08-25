@@ -383,11 +383,44 @@ class BinarySearchTree {
       }
     }
   }
+  find(value) {
+    if (this.root === null) return false;
+    if (this.root === value) {
+      return true;
+    }
+    var current = this.root;
+    while (true) {
+      if (value === current.value) return current;
+      if (value < current.value) {
+        if (current.left === null) {
+          return false;
+        }
+        current = current.left;
+      } else {
+        if (current.right === null) {
+          return false;
+        }
+        current = current.right;
+      }
+    }
+  }
+  // find(value){
+  //   if(this.root === null) return false;
+  //   var current = this.root,
+  //       found = false;
+  //   while(current && !found){
+  //       if(value < current.value){
+  //           current = current.left;
+  //       } else if(value > current.value){
+  //           current = current.right;
+  //       } else {
+  //           found = true;
+  //       }
+  //   }
+  //   if(!found) return undefined;
+  //   return current;
+  // }
 }
-
-//      10
-//   5     13
-// 2  7  11  16
 
 var tree = new BinarySearchTree();
 tree.insert(10);
