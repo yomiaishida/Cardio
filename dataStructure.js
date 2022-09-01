@@ -474,3 +474,32 @@ tree.insert(11);
 tree.insert(2);
 tree.insert(16);
 tree.insert(7);
+
+// Max Binary Heap
+class MaxBinaryHeap {
+  constructor() {
+    this.values = [];
+  }
+  insert(value) {
+    this.values.push(value);
+    this.bubbleUp(value);
+  }
+  bubbleUp() {
+    let idx = this.values.length - 1;
+    const element = this.values[idx];
+    while (idx > 0) {
+      let parentIdx = Math.floor((idx - 1) / 2);
+      let parent = this.values[parentIdx];
+      if (element <= parent) break;
+      this.values[parentIdx] = element;
+      this.values[idx] = parent;
+      idx = parentIdx;
+    }
+  }
+}
+
+let heap = new MaxBinaryHeap();
+heap.insert(3);
+heap.insert(4);
+heap.insert(5);
+heap.insert(6);
