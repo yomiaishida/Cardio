@@ -701,7 +701,7 @@ ER.enqueue("high fever", 4);
 ER.enqueue("broken arm", 2);
 ER.enqueue("glass in foot", 3);
 
-// Hash Table Class
+// Hash Table
 class HashTable {
   constructor(size = 53) {
     this.keyMap = new Array(size);
@@ -724,4 +724,25 @@ class HashTable {
     }
     this.keyMap[index].push([key, value]);
   }
+  get(key) {
+    let index = this._hash(key);
+    if (this.keyMap[index]) {
+      for (let i = 0; i < this.keyMap[index].length; i++) {
+        if (this.keyMap[index][i][0] === key) {
+          return this.keyMap[index][i][1];
+        }
+      }
+    }
+    return undefined;
+  }
 }
+
+let ht = new HashTable(17);
+
+ht.set("maroon", "#800000");
+ht.set("yellow", "#FFFF00");
+ht.set("olive", "#808000");
+ht.set("salmon", "#FA8072");
+ht.set("lightcoral", "#F08080");
+ht.set("mediumvioletred", "#C71585");
+ht.set("plum", "#DDA0DD");
