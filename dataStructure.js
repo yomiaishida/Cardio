@@ -772,3 +772,13 @@ ht.set("salmon", "#FA8072");
 ht.set("lightcoral", "#F08080");
 ht.set("mediumvioletred", "#C71585");
 ht.set("plum", "#DDA0DD");
+
+// Graph Add Vertex
+class Graph {
+  constructor() {
+    this.adjacencyList = {};
+  }
+  addVertex(vertex) {
+    if (!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];
+  }
+}
