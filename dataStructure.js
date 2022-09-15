@@ -874,3 +874,32 @@ g.addEdge("C", "E");
 g.addEdge("D", "E");
 g.addEdge("D", "F");
 g.addEdge("E", "F");
+
+// Weighted Graph
+class WeightedGraph {
+  constructor() {
+    this.adjacencyList = {};
+  }
+  addVertex(vertex) {
+    if (!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];
+  }
+  addEdge(vertex1, vertex2, weight) {
+    this.adjacencyList[vertex1].push({ node: vertex2, weight });
+    this.adjacencyList[vertex2].push({ node: vertex1, weight });
+  }
+}
+
+var g = new WeightedGraph();
+g.addVertex("A");
+g.addVertex("B");
+g.addVertex("C");
+g.addVertex("D");
+g.addVertex("E");
+g.addVertex("F");
+g.addEdge("A", "B", 3);
+g.addEdge("A", "C", 2);
+g.addEdge("B", "D", 1);
+g.addEdge("C", "E", 6);
+g.addEdge("D", "E", 5);
+g.addEdge("D", "F", 7);
+g.addEdge("E", "F", 8);
