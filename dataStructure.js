@@ -927,8 +927,21 @@ class WeightedGraph {
         // BUILD UP PATH TO RETURN AT END
       }
       if (smallest || distances[smallest] !== Infinity) {
-        for (let neigbor in this.adjacencyList[smallest]) {
+        for (let neighbor in this.adjacencyList[smallest]) {
           // find neigboring node
+          let nextNode = this.adjacencyList[smallest][neighbor];
+          console.log(nextNode);
+          // calculate new distance to neighboring node
+          let candidate = distances[smallest] + nextNode.weight;
+          let nextNeighbor = nextNode.node;
+          if (candidate < distances[nextNeighbor]) {
+            // updating new smallest distance to neighbor
+            distances[nextNeighbor] = candidate;
+            // updating previous - How we got to neighbor
+            previous[nextNeighbor] = smallest;
+            // enqueue in priority queue with new priority
+            nodes.enqueue(nextNeighbor, candidate);
+          }
         }
       }
     }
