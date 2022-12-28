@@ -13,14 +13,18 @@
 // Output: true
 
 var containsDuplicate = function(nums) {
-    let val;
+   
     let sortedArr = nums.sort((a, b) => a-b)
+    console.log(sortedArr)
+    let val;
+    // console.log(sortedArr.length)
     while(sortedArr.length > 0) {
-        val = sortedArr.pop()
-
-        if(val === sortedArr.pop()) {
+        
+        if(val === sortedArr[sortedArr.length-1]) {
             return true
         }
+        val = sortedArr.pop()
+        console.log(sortedArr)
     }
         return false
 };
