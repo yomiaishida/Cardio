@@ -17,7 +17,7 @@ var containsDuplicate = function(nums) {
     let sortedArr = nums.sort((a, b) => a-b)
     console.log(sortedArr)
     let val;
-    // console.log(sortedArr.length)
+
     while(sortedArr.length > 0) {
         
         if(val === sortedArr[sortedArr.length-1]) {
@@ -27,4 +27,44 @@ var containsDuplicate = function(nums) {
         console.log(sortedArr)
     }
         return false
+};
+
+// Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+// An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+ 
+
+// Example 1:
+
+// Input: s = "anagram", t = "nagaram"
+// Output: true
+// Example 2:
+
+// Input: s = "rat", t = "car"
+// Output: false
+var isAnagram = function(s, t) {
+    let arr1 = {};
+  let arr2 = {};
+
+  for (let val of s) {
+    arr1[val] = (arr1[val] || 0) + 1;
+  }
+
+  for (let val of t) {
+    arr2[val] = (arr2[val] || 0) + 1;
+  }
+
+  if (s.length !== t.length) {
+    return false;
+  }
+  for (let key in arr1) {
+    if (!(key in arr2)) {
+      return false;
+    }
+    if (arr1[key] !== arr2[key]) {
+      return false;
+    }
+  }
+  return true;
 };
