@@ -189,3 +189,9 @@ var isValid = (s, stack = []) => {
 
   return (stack.length === 0);
 };
+
+// Day 8 Reverse Linked List
+var reverse = (head) => {
+  let newHead = head[head.length-1]
+  let newTail = head[0]
+}
