@@ -194,4 +194,6 @@ var isValid = (s, stack = []) => {
 var reverse = (head) => {
   let newHead = head[head.length-1]
   let newTail = head[0]
+  let next;
+  let prev = null;
 }
