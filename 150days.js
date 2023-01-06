@@ -181,6 +181,22 @@ var isValid = (s, stack = []) => {
   return stack.length === 0;
 };
 
+// Day 7 Binary Search
+var search = function (nums, target) {
+  let left = 0;
+  let right = nums.length - 1;
+  let mid = Math.floor((left + right) / 2);
+
+  if (nums[mid] === target) return mid;
+
+  while (left <= right && nums[mid] !== target) {
+    nums[mid] > target ? (right = mid - 1) : (left = mid + 1);
+
+    mid = Math.floor((left + right) / 2);
+  }
+  return nums[mid] === target ? mid : -1;
+};
+
 // Day 8 Reverse Linked List
 var reverse = (head) => {
   let [prev, curr, next] = [null, head, null];
